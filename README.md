@@ -1,6 +1,6 @@
 [[中文版](https://github.com/JuneYaooo/medical_kb_chatbot/blob/main/README.md)] [[English](https://github.com/JuneYaooo/medical_kb_chatbot/blob/main/README_en.md)]
 
-# 病历结构化工具
+# 病历结构化工具（under construction）
 （代码待上传..）
 
 该工具是一个基于 PULSE 模型的结构化工具，旨在帮助用户处理和分析文本数据。它提供了以下功能，适用于医疗场景的结构化使用：

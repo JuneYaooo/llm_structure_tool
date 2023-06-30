@@ -1,6 +1,6 @@
 [[中文版](https://github.com/JuneYaooo/medical_assistant/blob/main/README.md)] [[English](https://github.com/JuneYaooo/medical_assistant/blob/main/README_en.md)]
 
-# Medical Record Structured Tool
+# Medical Record Structured Tool（under construction）
 
 This tool is a structured tool based on the PULSE model, designed to assist users in processing and analyzing textual data. It provides the following features:
 
