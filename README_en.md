@@ -85,6 +85,10 @@ Entering an unrelated field, such as "Gastric Tumor Size," will result in "Not m
 Entering a related field, such as "Adrenal Tumor Size," will result in "Approximately 5.5 cm × 5.7 cm."
 ![Extraction example - Comparison 2](img/5.jpg)
 
+## Acknowledgments
+
+- [PULSE](https://github.com/openmedlab/PULSE): The model used in this project is based on PULSE.
+
 ## Contribution
 
 If you are interested in this project, you are welcome to contribute your code and improvement suggestions. You can participate in the following ways:

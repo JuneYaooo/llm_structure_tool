@@ -86,6 +86,10 @@ python app.py
 ![提取案例-对比2](img/5.jpg)
 
 
+## 致谢
+
+- [PULSE](https://github.com/openmedlab/PULSE): 本项目模型来源于PULSE
+
 ## 贡献
 
 如果您对该项目感兴趣，欢迎贡献您的代码和改进建议。您可以通过以下方式参与：
