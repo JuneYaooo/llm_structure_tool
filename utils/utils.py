@@ -138,7 +138,7 @@ def evaluate_model(pred_path, gold_path):
 
 
 def stop_train_process():
-    process = subprocess.Popen('ps -ef | grep finetune.py', shell=True, stdout=subprocess.PIPE)
+    process = subprocess.Popen('ps -ef | grep train_bash.py', shell=True, stdout=subprocess.PIPE)
     output, _ = process.communicate()
     process.kill()
     n = 0
@@ -147,7 +147,7 @@ def stop_train_process():
     try:
         lines = output.decode().split('\n')
         for line in lines:
-            if 'finetune.py' in line:
+            if 'train_bash.py' in line:
                 parts = line.split()
                 pid = parts[1]
                 # 杀死进程

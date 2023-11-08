@@ -1,8 +1,10 @@
 [[中文版](https://github.com/JuneYaooo/llm_structure_tool/blob/main/README.md)] [[English](https://github.com/JuneYaooo/llm_structure_tool/blob/main/README_en.md)]
 
-# 病历结构化工具（持续更新中）
+# 大模型结构化工具
 
-该工具是一个基于 PULSE 模型的结构化工具，旨在帮助用户处理和分析文本数据。它提供了以下功能，适用于医疗场景的结构化使用：
+该工具是一个可基于常见开源模型进行微调的结构化工具，旨在帮助用户处理和分析文本数据，目前提供了训练，预测，评估一体化的功能。训练预测部分采用了[[llmtuner](https://github.com/hiyouga/LLaMA-Factory)]，作为一个核心包引入。
+
+它提供了以下常见结构化类型，适用于各种场景下的结构化使用，如病例结构化场景。
 
 - **单选**
 
@@ -24,34 +26,19 @@
 git clone https://github.com/JuneYaooo/llm_structure_tool.git
 ```
 
-#### 使用 pip 安装
-
-确保您的计算机上已安装以下依赖项：
-
-- Python 3.9
-- pip 包管理器
-
-进入项目目录并安装必要的依赖项：
-
-```
-cd llm_structure_tool
-pip install -r requirements.txt
-```
-
-#### 使用 conda 安装
-
-确保您的计算机上已安装以下依赖项：
-
-- Anaconda 或 Miniconda
-
-进入项目目录并创建一个新的 conda 环境：
-
+#### 建议 conda 安装
+##### 方法一
 ```
 cd llm_structure_tool
 conda env create -f environment.yml
 ```
+##### 方法二
+```
+conda create -n llm_structure python=3.9
+pip install -r requirements.txt
+```
 
-激活新创建的环境：
+激活conda环境：
 
 ```
 conda activate llm_structure
@@ -63,10 +50,13 @@ conda activate llm_structure
 python app.py
 ```
 
+### 模型配置
+在config/config.py中，填入自己想要使用的模型地址
+
 ## 使用方法
 结构化工具将在终端上提供一个简单的交互界面。您可以根据提示输入相关信息，选择要执行的功能。
 
-### 测试
+### 单句测试
 
 输入一段话，设定规则，进行单选、多选或提取
 
@@ -85,10 +75,19 @@ python app.py
 输入相关的字段，如肾上腺肿物大小，结果为“约5.5 cm×5.7 cm”
 ![提取案例-对比2](img/5.jpg)
 
+### 训练
+待填充
+
+### 预测
+待填充
+
+### 评估
+待填充
 
 ## 致谢
 
-- [PULSE](https://github.com/openmedlab/PULSE): 本项目模型来源于PULSE
+- [PULSE](https://github.com/openmedlab/PULSE): 本项目使用了PULSE模型（上海人工智能实验室的医疗开源大模型）
+- [llmtuner](https://github.com/hiyouga/LLaMA-Factory): 本项目训练预测代码基于llmtuner
 
 ## 贡献
 

@@ -2,7 +2,9 @@
 
 # Medical Record Structuring Tool (Under Continuous Update)
 
-This tool is a structured tool based on the PULSE model, designed to assist users in processing and analyzing textual data. It provides the following features for structured use in medical scenarios:
+This tool is a versatile structuring tool that allows fine-tuning common open-source models for various text data processing and analysis tasks. It currently provides integrated functionalities for training, prediction, and evaluation, with the training and prediction components utilizing [[llmtuner](https://github.com/hiyouga/LLaMA-Factory)] as a core package.
+
+It offers the following common structuring types applicable to various scenarios, such as medical case structuring:
 
 - Single selection
 
@@ -24,31 +26,16 @@ First, clone this project to your local computer:
 git clone https://github.com/JuneYaooo/llm_structure_tool.git
 ```
 
-#### Installation using pip
-
-Make sure the following dependencies are installed on your computer:
-
-- Python 3.9
-- pip package manager
-
-Navigate to the project directory and install the necessary dependencies:
-
-```
-cd llm_structure_tool
-pip install -r requirements.txt
-```
-
-#### Installation using conda
-
-Make sure the following dependencies are installed on your computer:
-
-- Anaconda or Miniconda
-
-Navigate to the project directory and create a new conda environment:
-
-```
+#### Conda Installation (Recommended)
+##### Method 1
+```shell
 cd llm_structure_tool
 conda env create -f environment.yml
+```
+##### Method 2
+```shell
+conda create -n llm_structure python=3.9
+pip install -r requirements.txt
 ```
 
 Activate the newly created environment:
@@ -65,9 +52,9 @@ python app.py
 
 ## Usage
 
-The structuring tool provides a simple interactive interface in the terminal. You can enter relevant information and select the desired functionality based on the prompts.
+The structuring tool provides a simple interactive interface in the terminal. You can enter relevant information and select the desired functionality as prompted.
 
-### Testing
+### Single Sentence Testing
 
 Enter a paragraph, set the rules, and perform single selection, multiple selection, or extraction.
 
@@ -85,9 +72,19 @@ Entering an unrelated field, such as "Gastric Tumor Size," will result in "Not m
 Entering a related field, such as "Adrenal Tumor Size," will result in "Approximately 5.5 cm × 5.7 cm."
 ![Extraction example - Comparison 2](img/5.jpg)
 
+### Training
+To be filled
+
+### Prediction
+To be filled
+
+### Evaluation
+To be filled
+
 ## Acknowledgments
 
-- [PULSE](https://github.com/openmedlab/PULSE): The model used in this project is based on PULSE.
+- [PULSE](https://github.com/openmedlab/PULSE): This project uses the PULSE model (a medical open-source large language model from the Shanghai Artificial Intelligence Laboratory).
+- [llmtuner](https://github.com/hiyouga/LLaMA-Factory): The training and prediction code for this project is based on llmtuner.
 
 ## Contribution
 

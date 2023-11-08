@@ -1,1 +1,13 @@
 **/__pycache__
+# 忽略Python缓存文件
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+.idea/
+
+# 忽略一些用户产生的文件
+data/*
+# finetune/*/
+# !finetune/*.py
