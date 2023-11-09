@@ -7,7 +7,9 @@ __pycache__/
 
 .idea/
 
+docker/*
+
 # 忽略一些用户产生的文件
 data/*
-# finetune/*/
-# !finetune/*.py
+finetune/*/
+!finetune/*.py
