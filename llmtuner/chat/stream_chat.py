@@ -123,25 +123,3 @@ class ChatModel:
 
         yield from streamer
 
-if __name__ == "__main__":
-        # Define the command-line arguments as a dictionary
-        args = {
-            "stage": "sft",
-            "model_name_or_path": "/mnt/data/smart_health_02/yaoyujun/models/chatglm3-6b",
-            "template": "chatglm3",
-            "finetuning_type": "lora",
-            "lora_target": "query_key_value",
-            "checkpoint_dir": "/mnt/data/smart_health_02/yaoyujun/github/LLaMA-Efficient-Tuning/checkpoints/chatglm3-6b_1102"
-        }
-
-        # Create an instance of ChatModel with the args dictionary
-        chat_model = ChatModel(args)
-
-        # Test the chat function
-        query = "图像质量：乙级；检查途径：经体表；检查项目：二维、 M型、多普勒（彩色、 脉冲式、连续式）         心脏M型及二维测值：（单位mm）                      M型左心功能测定         名称        测量值   正常参考值         名称           测量值      主动脉根部内径：    33     20-37        左室舒张末期容量：    120                 左房内径：    46     19-40        左室收缩末期容量：     44          左室舒张期内径：    50     35-56         左室射血分数(%)：     64          左室收缩期内径：    33     20-37       左室短轴缩短率(%)：     35              室间隔厚度：    13     6-11           每搏输出量(ml):      77                左室后壁厚度：    11     6-11            (注:女性左房内径参考值:16-37、左室舒张期内径参考值:32-53、左室收缩期内径参考值:17-34) 一、二维灰阶超声描述：  1.左房增大，余房室腔内径正常范围。大动脉关系、内径正常。  2.室间隔增厚，余室壁厚度正常；静息状态下左室壁各节段收缩活动未见明显异常。  3.主动脉瓣局部增厚，回声增强，开放不受限，余心瓣膜形态、结构、启闭运动未见明显异常。  4.心包腔未见明显异常。二、彩色及频谱多普勒超声描述：  1.房、室间隔水平未见明显分流。  2.二尖瓣未见明显反流。舒张期经二尖瓣口血流:E= 54cm/s， A= 84cm/s，E/A=0.6。  3.主动脉瓣可见轻微反流。  4.三尖瓣可见轻度反流，反流峰值流速约2.0m/s，跨瓣压差16mmHg。  5.肺动脉瓣可见轻微反流。三、组织多普勒检查：   二尖瓣瓣环水平：室间隔侧 E'=  4cm/s，E/E'= 14。                   左室侧壁 E'=  8cm/s，E/E'=  7。"
-        response, (prompt_length, response_length) = chat_model.chat(query,[],'##结构化任务##根据下文中信息，判断主动脉根部内径是什么？请提取文中对应的值。')
-        print("User:", query)
-        print("Response:", response)
-        print("Prompt Length:", prompt_length)
-        print("Response Length:", response_length)
-

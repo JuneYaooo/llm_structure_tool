@@ -28,7 +28,7 @@ llm_model_dict = {
 }
 
 # 找到 profile.d/conda.sh 文件的绝对路径，填进来
-conda_env_file = '/path-to-your-conda/profile.d/conda.sh'
+conda_env_file = '/path-to-your-conda/etc/profile.d/conda.sh'
 
 # 生成参数
 max_length=1500
