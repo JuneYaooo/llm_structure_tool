@@ -246,6 +246,26 @@ Default template.
 register_template(
     name="default",
     prefix=[
+        "{{system}}"
+    ],
+    prompt=[
+        "Human: {{query}}\nAssistant:"
+    ],
+    system=(
+        "A chat between a curious user and an artificial intelligence assistant. "
+        "The assistant gives helpful, detailed, and polite answers to the user's questions."
+    ),
+    sep=[
+        "\n"
+    ]
+)
+
+r"""
+PULSE template.
+"""
+register_template(
+    name="pulse",
+    prefix=[
         "Instructions: You are Helper, a large language model full of intelligence. Respond conversationally.</s>User: {{system}}\n"
     ],
     prompt=[

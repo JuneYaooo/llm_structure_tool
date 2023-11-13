@@ -13,7 +13,9 @@ from config.common_config import *
 
 model_loaded = False
 project_change = False
+model_change = False
 last_project_name = ''
+last_model_name = ''
 
 def read_excel_file(file_path):
     df = pd.read_excel(file_path)
@@ -352,7 +354,7 @@ def infer_model(model_name, project_name, config_path, test_data_path):
 
 
 def load_model(model_name, project_name):
-    global model_loaded, model, tokenizer, project_change, last_project_name
+    global model_loaded, model, tokenizer, project_change, last_project_name, last_model_name, model_change
     current_directory = os.getcwd()
     model_file_name = llm_model_dict[model_name]['name']
     model_path = llm_model_dict[model_name]['model_path']
@@ -360,7 +362,13 @@ def load_model(model_name, project_name):
     lora_target = llm_model_dict[model_name]['lora_target']
     if project_name != last_project_name:
         project_change = True
-    if not model_loaded or project_change:
+    if model_name != last_model_name:
+        model_change = True
+    if not model_loaded or project_change or model_change:
+        if model_loaded:
+            del model
+            import torch
+            torch.cuda.empty_cache()
         available_gpus = get_available_gpu(threshold=11000)
         if len(available_gpus)>0:
             os.environ["CUDA_VISIBLE_DEVICES"] = str(available_gpus[0])
@@ -383,6 +391,8 @@ def load_model(model_name, project_name):
             model_loaded = True
             last_project_name = project_name
             project_change = False
+            last_model_name = model_name
+            model_change = False
             # return model, tokenizer
         except Exception as e:
             print('error!! ', e)

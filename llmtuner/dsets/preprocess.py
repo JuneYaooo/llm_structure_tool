@@ -65,6 +65,7 @@ def preprocess_dataset(
     def preprocess_supervised_dataset(examples: Dict[str, List[Any]]) -> Dict[str, Any]:
         # build inputs with format `<bos> X Y <eos>` and labels with format `<ignore> ... <ignore> Y <eos>`
         # for multiturn examples, we only mask the prompt part in each prompt-response pair.
+        print('data_args.template',data_args.template)
         model_inputs = {"input_ids": [], "attention_mask": [], "labels": []}
 
         for query, response, history, system in construct_example(examples):
@@ -72,6 +73,9 @@ def preprocess_dataset(
                 continue
 
             input_ids, labels = [], []
+            if data_args.template=='pulse' and response != "":
+                response = 'Helper: '+response
+
             for turn_idx, (source_ids, target_ids) in enumerate(template.encode_multiturn(
                 tokenizer, query, response, history, system
             )):
